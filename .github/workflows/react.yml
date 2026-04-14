@@ -25,22 +25,18 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      # - name: Run tests
-      #   run: npm test -- --watchAll=false
+      - name: Run tests
+        run: npm test -- --watchAll=false
 
       - name: Build project
         run: npm run build
 
-      # - name: Upload production build
-      #   uses: actions/upload-artifact@v4   # updated version
-      #   with:
-      #     name: Test-build
-      #     path: build
       - name: Upload production build
         uses: actions/upload-artifact@v4
         with:
           name: Test-build
           path: dist   # <-- Parcel output folder
+          
       - name: Publish package
         run: npm publish
         env:
