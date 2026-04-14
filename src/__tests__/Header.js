@@ -6,6 +6,6 @@ import { BrowserRouter } from "react-router-dom"
 
 test("render header", () => {
     render(<BrowserRouter><Header /></BrowserRouter>)
-    const headerDiv = screen.getByTestId("header")
+    const headerDiv = screen.getByTestId("headers")
     expect(headerDiv).toBeInTheDocument()
 })
