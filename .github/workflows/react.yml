@@ -1,4 +1,4 @@
-name: Test CI   # Changed from React CI to Test CI
+name: Test CI
 
 on:
   push:
@@ -29,7 +29,7 @@ jobs:
         run: npm run build
 
       - name: Upload production build
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4   # updated version
         with:
-          name: Test-build   # Changed artifact name to match repo
+          name: Test-build
           path: build
