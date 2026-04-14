@@ -1,0 +1,23 @@
+{
+  "compilerOptions": {
+    // "noImplicitAny": false,
+    "target": "ES2020",                          // Modern JavaScript target
+    "lib": ["DOM", "DOM.Iterable", "ES2020"],    // Include DOM and modern JS features
+    "module": "ESNext",                          // Let Webpack handle module bundling
+    "moduleResolution": "node",                  // Resolve modules like Node.js
+    "jsx": "react-jsx",                          // Use the new JSX transform (React 17+)
+    "allowImportingTsExtensions": true,         // Prefer omitting .ts/.tsx in imports
+    "esModuleInterop": true,                     // Allow default imports from CommonJS
+    "allowSyntheticDefaultImports": true,        // Allow default imports even if not present
+    "resolveJsonModule": true,                   // Allow importing JSON files
+    "isolatedModules": true,                     // Required for Babel or SWC
+    "noEmit": true,                              // Don't emit output (Webpack handles it)
+    "strict": true,                              // Enable all strict type-checking options
+    "forceConsistentCasingInFileNames": true,    // Prevent case mismatches in imports
+    "noFallthroughCasesInSwitch": true,          // Catch missing break statements
+    "noImplicitReturns": true,                   // Ensure all code paths return a value
+    "skipLibCheck": true                         // Speeds up build by skipping type checks on node_modules
+  },
+  "include": ["src"],                            // Adjust to your source directory
+  "exclude": ["node_modules", "dist"]            // Exclude build output and dependencies
+}
