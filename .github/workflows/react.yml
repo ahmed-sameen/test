@@ -28,8 +28,14 @@ jobs:
       - name: Build project
         run: npm run build
 
+      # - name: Upload production build
+      #   uses: actions/upload-artifact@v4   # updated version
+      #   with:
+      #     name: Test-build
+      #     path: build
       - name: Upload production build
-        uses: actions/upload-artifact@v4   # updated version
+        uses: actions/upload-artifact@v4
         with:
           name: Test-build
-          path: build
+          path: dist   # <-- Parcel output folder
+
