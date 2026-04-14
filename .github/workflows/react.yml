@@ -38,4 +38,9 @@ jobs:
         with:
           name: Test-build
           path: dist   # <-- Parcel output folder
+      - name: Publish package
+        run: npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
 
