@@ -37,6 +37,9 @@ jobs:
           name: Test-build
           path: dist   # <-- Parcel output folder
           
+      - name: Bump version with date
+        run: npm version 1.0.$(date +'%y.%m.%d') --no-git-tag-version
+        
       - name: Publish package
         run: npm publish
         env:
