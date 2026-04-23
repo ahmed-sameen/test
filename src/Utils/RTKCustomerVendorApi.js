@@ -1,4 +1,6 @@
-const RTKCustomerVendorApi = crateApi({
+import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
+
+export const RTKCustomerVendorApi = createApi({
     reducerPath: "RTKCustomerVendorApi",
     baseQuery: fetchBaseQuery({ baseUrl: "http://localhost:3001/" }),
     tagTypes: ["People"],
@@ -22,6 +24,8 @@ const RTKCustomerVendorApi = crateApi({
                 method: "post"
             }),
             invalidatesTags: [{ type: "People", id: "vendor" }]
-        })
+        }),
     })
 })
+
+export const { useGetPeopleQuery, useAddCustomerMutation, useAddVendorMutation } = RTKCustomerVendorApi
