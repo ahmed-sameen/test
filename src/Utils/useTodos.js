@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useDebugValue, useEffect, useState } from "react";
 
 const useTodos = (id) => {
 
@@ -8,6 +8,7 @@ const useTodos = (id) => {
         if (id) fetchTodo()
     }, [id])
 
+    useDebugValue(todos)
     async function fetchTodo() {
         const response = await fetch("https://dummyjson.com/todos/" + id)
         const data = await response.json();

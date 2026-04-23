@@ -7,7 +7,7 @@ import AppLayout from './src/Components/Routing/Applayout/AppLayout'
 import Body from './src/Components/Routing/Body/Body'
 import About from './src/Components/Routing/About/ABout'
 import ProtectedRoute from './src/Utils/ProtectedRoute'
-import UseCallback from './src/Components/Routing/Callback/UseCallback'
+// import UseCallback from './src/Components/Routing/Callback/UseCallback'
 import ErrorBoundaryClass from './src/Utils/ErrorBoundaryClass'
 import { A } from './src/Components/ClassComponents/A'
 import { ErrorBoundary } from 'react-error-boundary'
@@ -40,8 +40,13 @@ import App from './App.tsx'
 import UseFormStatus from './src/Components/FormStatus/UseFormStatus.js'
 import Parent from './Delete.tsx'
 import BasicForm from './src/Components/BasicForm/BasicForm.tsx'
+import appStore1 from './src/Utils1/appStore.js'
+import RTKCards1 from './src/Components/RTKCards/RTKCards1.js'
+import RTKCustomerAgain from './src/Components/RTKCustomerVendor copy/RTKCustomer.js'
+import RTKVendorAgain from './src/Components/RTKCustomerVendor copy/RTKVendor.js';
+import CarImage from "./src/assets/car.jpg"
 
-// console.log("hi")
+console.log("hi")
 const heading = React.createElement("h1",
     {},
     "heading"
@@ -67,10 +72,10 @@ const appRouter = createBrowserRouter(
                         }
                     ]
                 },
-                {
-                    path: "useCallback",
-                    element: <UseCallback />
-                },
+                // {
+                //     path: "useCallback",
+                //     element: <UseCallback />
+                // },
                 {
                     path: "useTodo",
                     element: <TodoCustomHook />
@@ -158,17 +163,29 @@ const appRouter = createBrowserRouter(
                 {
                     path: "RTKvendor",
                     element: <Provider store={appStore}> <RTKVendor /></Provider>
+                },
+                {
+                    path: "RTKcustomerAgain",
+                    element: <Provider store={appStore}> <RTKCustomerAgain /></Provider>
+                },
+                {
+                    path: "RTKvendorAgain",
+                    element: <Provider store={appStore}> <RTKVendorAgain /></Provider>
+                },
+                {
+                    path: "RTKCardsAgain",
+                    element: <Provider store={appStore1}><RTKCards1 /></Provider>
                 }
             ]
         }
     ]
 )
 
-// root.render(<ErrorBoundary
-//     FallbackComponent={ErrorBoundaryFunction}
-//     onReset={() => console.log("reset")}>
-//     <RouterProvider router={appRouter} />
-// </ErrorBoundary>)
+root.render(<ErrorBoundary
+    FallbackComponent={ErrorBoundaryFunction}
+    onReset={() => console.log("reset")}>
+    <RouterProvider router={appRouter} />
+</ErrorBoundary>)
 
 
 // root.render(<RouterProvider router={appRouter} />)
@@ -178,7 +195,7 @@ const appRouter = createBrowserRouter(
 // </ErrorBoundaryClass>)
 
 // root.render(<App />)
-root.render(<BasicForm />)
+// root.render(<BasicForm />)
 
 // root.render(<Provider store={appStore1}><Cards /></Provider>)
 
@@ -202,7 +219,7 @@ function transform(arr) {
     })
     return obj
 }
-console.log(transform(arr))
+// console.log(transform(arr))
 
 function transform1(arr) {
     return arr.reduce((acc, { key, value }) => {
@@ -214,4 +231,43 @@ function transform1(arr) {
     }, {});
 }
 
-console.log(transform1(arr))
+// console.log(transform1(arr))
+
+function flattenArray(arr) {
+    return arr.reduce((acc, val) => {
+        if (Array.isArray(val)) {
+            return [...acc, ...flattenArray(val)]
+        } else {
+            return [...acc, val]
+        }
+    }, [])
+}
+
+// console.log(flattenArray([1, 2, [3, 4, [5, 6], 7], 8]))
+
+let array1 = []
+function flatten(arr) {
+    if (!Array.isArray(arr)) {
+        array1.push(arr)
+    } else {
+        for (let i = 0; i < arr.length; i++) {
+            flatten(arr[i])
+        }
+    }
+}
+flatten([1, 2, [3, 4, [5, 6], 7], 8, 9])
+// console.log(array1)
+
+function denomination(amount, purchase) {
+    let obj = {};
+    let denominationVals = [1000, 100, 10, 5];
+    let exhange = amount - purchase;
+    for (let val of denominationVals) {
+        if (val <= exhange) {
+            obj[val] = Math.floor(exhange / val);
+            exhange = exhange % val;
+        }
+    }
+    return obj
+}
+// console.log(denomination(655,300))

@@ -12,6 +12,8 @@ const Header = () => {
             <Link to="/rtkcustomer">RTK customer</Link>&nbsp; */}
             <Link to="/rtkcustomer1"> customer</Link>&nbsp;
             <Link to="/rtkvendor1">vendor</Link>&nbsp;
+            <Link to="/RTKcustomerAgain"> RTKcustomerAgain</Link>&nbsp;
+            <Link to="/RTKvendorAgain">RTKvendorAgain</Link>&nbsp;
         </div>
     )
 }

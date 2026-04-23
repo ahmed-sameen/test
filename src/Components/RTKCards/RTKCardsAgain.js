@@ -1,6 +1,6 @@
 // useState
 import { useState } from "react";
-import { useAddCardMutation, useGetCardsQuery, useRemoveCardMutation } from "../../Utils/cardsAPISliceAgain";
+import { useAddCardMutation, useGetCardsQuery } from "../../Utils/cardsAPISliceAgain";
 
 
 const RTKCardsAgain = () => {
@@ -8,7 +8,7 @@ const RTKCardsAgain = () => {
     const { data, error } = useGetCardsQuery()
     const [name, setName] = useState("");
     const [addCard, { isLoading, isSuccess, isError, isFetching }] = useAddCardMutation();
-    const [removeCard] = useRemoveCardMutation()
+    // const [removeCard] = useRemoveCardMutation()
 
     console.log(data,"hi")
 
@@ -28,7 +28,7 @@ const RTKCardsAgain = () => {
     return <div>
         {data && data?.map(each => {
             return <div key={each.id}>{each.name}
-                <button onClick={() => removeCard(each.id)}>Remove</button>
+                {/* <button onClick={() => removeCard(each.id)}>Remove</button>/ */}
             </div>
         })}
         <form onSubmit={handleSubmit}>

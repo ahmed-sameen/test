@@ -7,6 +7,7 @@ import { todoAPISlice } from "./todoAPISlicee";
 import { cardsAPISlice } from "./cardsAPISlice";
 import { cardsAPISliceAgain } from "./cardsAPISliceAgain";
 import { customerVendorApiSlice } from "./CustomerVendorApiSlice";
+import { RTKCustomerVendorApi } from "./RTKCustomerVendorApi";
 
 const appStore = configureStore({
     reducer: {
@@ -15,6 +16,7 @@ const appStore = configureStore({
         [cardsAPISlice.reducerPath]: cardsAPISlice.reducer,
         [cardsAPISliceAgain.reducerPath]: cardsAPISliceAgain.reducer,
         [customerVendorApiSlice.reducerPath]: customerVendorApiSlice.reducer,
+        [RTKCustomerVendorApi.reducerPath]:RTKCustomerVendorApi.reducer,
         searchSlice,
         chatSlice,
         todoSlice
@@ -26,6 +28,7 @@ const appStore = configureStore({
             .concat(cardsAPISlice.middleware)
             .concat(cardsAPISliceAgain.middleware)
             .concat(customerVendorApiSlice.middleware)
+            .concat(RTKCustomerVendorApi.middleware)
 
 })
 
